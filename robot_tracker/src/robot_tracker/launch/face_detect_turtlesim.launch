@@ -1,0 +1,15 @@
+<!-- Initiates all the required nodes to run face detection using the turtle simulator to display movement -->
+<launch>
+    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node">
+        <param name="video_device" value="/dev/video0" />
+        <param name="image_width" value="640" />
+        <param name="image_height" value="480" />
+        <param name="pixel_format" value="yuyv" />
+        <param name="camera_frame_id" value="usb_cam" />
+        <param name="io_method" value="mmap"/>
+    </node>
+    <node name="detect_face" pkg="robot_tracker" type="detect_face.py" output="screen"
+          args="-hc $(find robot_tracker)/scripts/haarcascade_frontalface_default.xml"/>
+    <node name="face_move_robot" pkg="robot_tracker" type="face_move_robot.py" output="screen"/>
+    <node name="turtlesim" pkg="turtlesim" type="turtlesim_node"/>
+</launch>
