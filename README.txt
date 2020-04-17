@@ -86,3 +86,4 @@ Run launch file:
 
 
 Github url for the project: https://github.com/rmit-s3624420-TruongGiang-Le/capstone_toolbot
+Demo video: https://youtu.be/50XRS8l7Iv0
